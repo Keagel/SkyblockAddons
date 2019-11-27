@@ -56,6 +56,7 @@ public enum Message {
     SETTING_PREVENT_MOVEMENT_ON_DEATH(MessageObject.SETTING, "preventMovementOnDeath"),
     SETTING_LOCK_SLOTS(MessageObject.SETTING, "lockSlots"),
     SETTING_LOCK_SLOT(MessageObject.SETTING, "lockSlot"),
+    SETTING_TOGGLE_SOUNDS(MessageObject.SETTING, "toggleSounds"),
     SETTING_DONT_RESET_CURSOR_INVENTORY(MessageObject.SETTING, "dontResetCursorInventory"),
     SETTING_SUMMONING_EYE_ALERT(MessageObject.SETTING, "summoningEyeAlert"),
     SETTING_CHANGE_COLOR(MessageObject.SETTING, "changeColor"),

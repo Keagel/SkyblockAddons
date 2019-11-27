@@ -43,6 +43,7 @@ public class ConfigValues {
     @SuppressWarnings("deprecation") private Set<Feature> remoteDisabledFeatures = EnumSet.of(Feature.AVOID_BREAKING_BOTTOM_SUGAR_CANE);
     private Set<Integer> legacyLockedSlots = new HashSet<>();
     private Map<String, Set<Integer>> profileLockedSlots = new HashMap<>();
+    private float masterSoundLevel;
 
     public ConfigValues(SkyblockAddons main, File settingsConfigFile) {
         this.main = main;
@@ -168,6 +169,10 @@ public class ConfigValues {
                 if (EnumUtils.TextStyle.values().length > ordinal) {
                     textStyle = EnumUtils.TextStyle.values()[ordinal];
                 }
+            }
+
+            if (settingsConfig.has("masterSoundLevel")) {
+                this.masterSoundLevel = settingsConfig.get("masterSoundLevel").getAsFloat();
             }
 
             int configVersion;
@@ -460,6 +465,7 @@ public class ConfigValues {
             settingsConfig.addProperty("backpackStyle", backpackStyle.ordinal());
 
             settingsConfig.addProperty("configVersion", CONFIG_VERSION);
+            settingsConfig.addProperty("masterSoundLevel", masterSoundLevel);
 
             bufferedWriter.write(settingsConfig.toString());
             bufferedWriter.close();
@@ -665,6 +671,13 @@ public class ConfigValues {
         return MathHelper.clamp_float(value, ConfigValues.GUI_SCALE_MINIMUM, ConfigValues.GUI_SCALE_MAXIMUM);
     }
 
+    public float getMasterSoundLevel() {
+        return masterSoundLevel;
+    }
+
+    public void setMasterSoundLevel(float level) {
+        this.masterSoundLevel = level;
+    }
 
 
 //    private float getRoundedValue(float value) {

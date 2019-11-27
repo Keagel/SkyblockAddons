@@ -40,6 +40,7 @@ public class SkyblockAddons {
     private KeyBinding openSettingsKeyBind;
     private KeyBinding editGUIKeyBind;
     private KeyBinding lockSlotKeyBind;
+    private KeyBinding toggleSoundsKeyBind;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e) {
@@ -56,9 +57,11 @@ public class SkyblockAddons {
         openSettingsKeyBind = new KeyBinding("key.skyblockaddons.open_settings", Keyboard.KEY_NONE, MOD_NAME);
         editGUIKeyBind = new KeyBinding("key.skyblockaddons.edit_gui", Keyboard.KEY_NONE, MOD_NAME);
         lockSlotKeyBind = new KeyBinding("key.skyblockaddons.lock_slot", Keyboard.KEY_L, MOD_NAME);
+        toggleSoundsKeyBind = new KeyBinding("key.skyblockaddons.toggle_sounds", Keyboard.KEY_NONE, MOD_NAME);
         ClientRegistry.registerKeyBinding(openSettingsKeyBind);
         ClientRegistry.registerKeyBinding(editGUIKeyBind);
         ClientRegistry.registerKeyBinding(lockSlotKeyBind);
+        ClientRegistry.registerKeyBinding(toggleSoundsKeyBind);
     }
 
     @Mod.EventHandler
@@ -103,6 +106,7 @@ public class SkyblockAddons {
         changeKeyBindDescription(openSettingsKeyBind, Message.SETTING_SETTINGS.getMessage());
         changeKeyBindDescription(editGUIKeyBind, Message.SETTING_EDIT_LOCATIONS.getMessage());
         changeKeyBindDescription(lockSlotKeyBind, Message.SETTING_LOCK_SLOT.getMessage());
+        changeKeyBindDescription(toggleSoundsKeyBind, Message.SETTING_TOGGLE_SOUNDS.getMessage());
     }
 
     private void scheduleMagmaCheck() {
@@ -165,4 +169,6 @@ public class SkyblockAddons {
     public KeyBinding getLockSlot() {
         return lockSlotKeyBind;
     }
+
+    public KeyBinding getToggleSoundsKey() { return toggleSoundsKeyBind; }
 }

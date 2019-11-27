@@ -3,6 +3,7 @@ package codes.biscuit.skyblockaddons.listeners;
 import codes.biscuit.skyblockaddons.SkyblockAddons;
 import codes.biscuit.skyblockaddons.utils.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.SoundCategory;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiChest;
@@ -662,6 +663,19 @@ public class PlayerListener {
         else if (main.getOpenEditLocationsKey().isPressed()) {
             main.getUtils().setFadingIn(false);
             main.getRenderListener().setGuiToOpen(PlayerListener.GUIType.EDIT_LOCATIONS, 0, null);
+        }
+        else if (main.getToggleSoundsKey().isPressed()) {
+            Minecraft mc = Minecraft.getMinecraft();
+            float currentSoundLevel = mc.gameSettings.getSoundLevel(SoundCategory.MASTER);
+
+            if (currentSoundLevel > 0.f) {
+                main.getConfigValues().setMasterSoundLevel(currentSoundLevel);
+                mc.gameSettings.setSoundLevel(SoundCategory.MASTER, 0.f);
+            }
+
+            else {
+                mc.gameSettings.setSoundLevel(SoundCategory.MASTER, main.getConfigValues().getMasterSoundLevel());
+            }
         }
     }
 

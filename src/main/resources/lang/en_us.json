@@ -51,6 +51,7 @@
     "showItemAnvilUses": "Show Item Anvil Uses",
     "lockSlots": "Allow Locking Slots",
     "lockSlot": "Lock Slot",
+    "toggleSounds": "Toggle Mute All Sounds",
     "dontResetCursorInventory": "Don't Reset Cursor Between Inventories",
     "summoningEyeAlert": "Summoning Eye Alert",
     "makeEnderchestsInEndGreen": "Change Enderchest Color in the End",
